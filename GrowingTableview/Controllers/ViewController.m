@@ -9,7 +9,8 @@
 #import "ViewController.h"
 #import "DataCell.h"
 
-@interface ViewController ()<DataCellDelegate>
+
+@interface ViewController () <DataCellDelegate>
 {
     NSMutableArray *arr;
     int btnX;
@@ -27,6 +28,9 @@
 @end
 
 @implementation ViewController
+
+#pragma mark - ViewLife Cycle
+#pragma mark -
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,6 +83,10 @@
     
     [tblView setContentInset:UIEdgeInsetsMake(1, 0, 0, 0)];
 }
+
+#pragma mark - UITableViewDataSource / UITableViewDelegate
+#pragma mark -
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -150,6 +158,7 @@
     }
     return nil;
 }
+
 -(void)taped:(NSMutableArray *)dataObj withIndex:(NSInteger)index ofIndexPath:(NSIndexPath *)indexPathToBeExpanded
 {
     if (!isExpanded) {
@@ -184,6 +193,9 @@
         }
     }
 }
+
+#pragma mark - Memory Management
+#pragma mark -
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
